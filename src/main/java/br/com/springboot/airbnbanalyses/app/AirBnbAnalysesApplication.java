@@ -1,0 +1,188 @@
+package br.com.springboot.airbnbanalyses.app;
+
+import br.com.springboot.airbnbanalyses.entities.AirBnbListings;
+import br.com.springboot.airbnbanalyses.ordenationAlgorithms.InsertionSort;
+import br.com.springboot.airbnbanalyses.ordenationAlgorithms.SelectionSort;
+import com.opencsv.bean.CsvToBean;
+import com.opencsv.bean.CsvToBeanBuilder;
+import com.opencsv.exceptions.CsvDataTypeMismatchException;
+import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
+
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
+
+import static br.com.springboot.airbnbanalyses.app.CsvManipulation.*;
+import static br.com.springboot.airbnbanalyses.ordenationAlgorithms.InsertionSort.insertionSortCrescent;
+import static br.com.springboot.airbnbanalyses.ordenationAlgorithms.SelectionSort.selectionSortCrescent;
+
+
+public class AirBnbAnalysesApplication {
+
+    private static final String USER = "lukki";
+
+    //Alterar para o endereço que o arquivo deve ser criado
+    private static final String CSV_LISTINGS = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\csvFiles\\listings.csv";
+    private static final String CSV_LISTINGS_REVIEW_DATE = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\csvFiles\\listings_review_date.csv";
+    private static final String CSV_LISTINGS_GT_AVG_PRICES = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\csvFiles\\listings_gt_avg_prices.csv";
+    private static final String CSV_LISTINGS_LT_AVG_PRICES = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\csvFiles\\listings_lt_avg_prices.csv";
+
+    private static final String CSV_LISTINGS_NAMES_INSERTIONSORT_MEDIOCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\insertionSort\\listings_names_insertionSort_medioCaso.csv";
+    private static final String CSV_LISTINGS_NAMES_INSERTIONSORT_PIORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\insertionSort\\listings_names_insertionSort_piorCaso.csv";
+    private static final String CSV_LISTINGS_NAMES_INSERTIONSORT_MELHORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\insertionSort\\listings_names_insertionSort_melhorCaso.csv";
+
+    private static final String CSV_LISTINGS_PRICE_INSERTIONSORT_MEDIOCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\insertionSort\\listings_price_insertionSort_medioCaso.csv";
+    private static final String CSV_LISTINGS_PRICE_INSERTIONSORT_PIORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\insertionSort\\listings_price_insertionSort_piorCaso.csv";
+    private static final String CSV_LISTINGS_PRICE_INSERTIONSORT_MELHORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\insertionSort\\listings_price_insertionSort_melhorCaso.csv";
+
+    private static final String CSV_LISTINGS_NUMBEROFREVIEWS_INSERTIONSORT_MEDIOCASO = "";
+    private static final String CSV_LISTINGS_NUMBEROFREVIEWS_INSERTIONSORT_PIORCASO = "";
+    private static final String CSV_LISTINGS_NUMBEROFREVIEWS_INSERTIONSORT_MELHORCASO = "";
+
+    private static final String CSV_LISTINGS_LASTREVIEW_INSERTIONSORT_MEDIOCASO = "";
+    private static final String CSV_LISTINGS_LASTREVIEW_INSERTIONSORT_PIORCASO = "";
+    private static final String CSV_LISTINGS_LASTREVIEW_INSERTIONSORT_MELHORCASO = "";
+
+    private static final String CSV_LISTINGS_NAMES_SELECTIONSORT_MEDIOCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\selectionSort\\listings_names_selectionSort_medioCaso.csv";
+    private static final String CSV_LISTINGS_NAMES_SELECTIONSORT_PIORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\selectionSort\\listings_names_selectionSort_piorCaso.csv";
+    private static final String CSV_LISTINGS_NAMES_SELECTIONSORT_MELHORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\selectionSort\\listings_names_selectionSort_melhorCaso.csv";
+
+    private static final String CSV_LISTINGS_PRICE_SELECTIONSORT_MEDIOCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\selectionSort\\listings_price_selectionSort_medioCaso.csv";
+    private static final String CSV_LISTINGS_PRICE_SELECTIONSORT_PIORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\selectionSort\\listings_price_selectionSort_piorCaso.csv";
+    private static final String CSV_LISTINGS_PRICE_SELECTIONSORT_MELHORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\selectionSort\\listings_price_selectionSort_melhorCaso.csv";
+
+    private static final String CSV_LISTINGS_NUMBEROFREVIEWS_SELECTIONSORT_MEDIOCASO = "";
+    private static final String CSV_LISTINGS_NUMBEROFREVIEWS_SELECTIONSORT_PIORCASO = "";
+    private static final String CSV_LISTINGS_NUMBEROFREVIEWS_SELECTIONSORT_MELHORCASO = "";
+
+    private static final String CSV_LISTINGS_LASTREVIEW_SELECTIONSORT_MEDIOCASO = "";
+    private static final String CSV_LISTINGS_LASTREVIEW_SELECTIONSORT_PIORCASO = "";
+    private static final String CSV_LISTINGS_LASTREVIEW_SELECTIONSORT_MELHORCASO = "";
+
+    private static final String CSV_LISTINGS_PRICE_MERGESORT_MEDIOCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\selectionSort\\listings_price_mergeSort_medioCaso.csv";
+    private static final String CSV_LISTINGS_PRICE_MERGESORT_PIORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\selectionSort\\listings_price_mergeSort_piorCaso.csv";
+    private static final String CSV_LISTINGS_PRICE_MERGESORT_MELHORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\selectionSort\\listings_price_mergeSort_melhorCaso.csv";
+
+    public static void main (String []args) {
+        try {
+            /*List<AirBnbListings> list = readCsv(CSV_LISTINGS).parse();
+
+            convertDate(list);
+            List<Integer> priceList = createPriceList(list);
+            writeCsvFiles(CSV_LISTINGS_REVIEW_DATE, CSV_LISTINGS_GT_AVG_PRICES, CSV_LISTINGS_LT_AVG_PRICES, list, returnAvgPrice(priceList));
+            System.out.println("Arquivos .csv criados com sucesso.");*/
+
+            List<AirBnbListings> listings_review_date = readCsv(CSV_LISTINGS_REVIEW_DATE).parse();
+
+            Integer[] arrayId = new Integer[listings_review_date.size()];
+            String[] arrayName = new String[listings_review_date.size()];
+            Integer[] arrayHostId = new Integer[listings_review_date.size()];
+            String[] arrayHostName = new String[listings_review_date.size()];
+            String[] arrayNeighbourhoodGroup = new String[listings_review_date.size()];
+            String[] arrayNeighbourhood = new String[listings_review_date.size()];
+            Double[] arrayLatitude = new Double[listings_review_date.size()];
+            Double[] arrayLongitude = new Double[listings_review_date.size()];
+            String[] arrayRoomType = new String[listings_review_date.size()];
+            Integer[] arrayPrice = new Integer[listings_review_date.size()];
+            Integer[] arrayMinimumNights = new Integer[listings_review_date.size()];
+            Integer[] arrayNumberOfReviews = new Integer[listings_review_date.size()];
+            String[] arrayLastReview= new String[listings_review_date.size()];
+            Double[] arrayReviewsPerMonth = new Double[listings_review_date.size()];
+            Integer[] arrayCalculatedHostListingsCount = new Integer[listings_review_date.size()];
+            Integer[] arrayAvaiability365 = new Integer[listings_review_date.size()];
+
+            resetArrays(listings_review_date, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
+
+            //------------------------SELECTION SORT (PRICE)------------------------//
+            SelectionSort.selectionSortCrescent(arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
+            writeAlgorithmsFiles(CSV_LISTINGS_PRICE_SELECTIONSORT_MEDIOCASO, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
+            SelectionSort.selectionSortCrescent(arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
+            writeAlgorithmsFiles(CSV_LISTINGS_PRICE_SELECTIONSORT_MELHORCASO, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
+            SelectionSort.selectionSortDecrescent(arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
+            writeAlgorithmsFiles(CSV_LISTINGS_PRICE_SELECTIONSORT_PIORCASO, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
+
+            //RESET DOS ARRAYS PARA A ORDEM ORIGINAL DOS DADOS
+            resetArrays(listings_review_date, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
+
+            //------------------------INSERTION SORT (PRICE)------------------------//
+            InsertionSort.insertionSortCrescent(arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
+            writeAlgorithmsFiles(CSV_LISTINGS_PRICE_INSERTIONSORT_MEDIOCASO, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
+            InsertionSort.insertionSortCrescent(arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
+            writeAlgorithmsFiles(CSV_LISTINGS_PRICE_INSERTIONSORT_MELHORCASO, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
+            SelectionSort.selectionSortDecrescent(arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
+            InsertionSort.insertionSortCrescent(arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
+            writeAlgorithmsFiles(CSV_LISTINGS_PRICE_INSERTIONSORT_PIORCASO, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (CsvRequiredFieldEmptyException e) {
+            e.printStackTrace();
+        } catch (CsvDataTypeMismatchException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //Reseta os arrays para o médio caso
+    public static void resetArrays(List<AirBnbListings> listings_review_date, Integer[] arrayId, String[] arrayName, Integer[] arrayHostId,
+                                   String[] arrayHostName, String[] arrayNeighbourhoodGroup, String[] arrayNeighbourhood, Double[] arrayLatitude, Double[] arrayLongitude,
+                                   String[] arrayRoomType, Integer[] arrayPrice, Integer[] arrayMinimumNights, Integer[] arrayNumberOfReviews,
+                                   String[] arrayLastReview, Double[] arrayReviewsPerMonth, Integer[] arrayCalculatedHostListingsCount, Integer[] arrayAvaiability365) {
+
+        //Movendo todos os arquivos do objeto para um array simples
+        int j = 0;
+        for (AirBnbListings i : listings_review_date) {
+            arrayId[j] = i.getId();
+            arrayName[j] = i.getName();
+            arrayHostId[j] = i.getHost_id();
+            arrayHostName[j] = i.getHost_name();
+            arrayNeighbourhoodGroup[j] = i.getNeighbourhood_group();
+            arrayNeighbourhood[j] = i.getNeighbourhood();
+            arrayLatitude[j] = i.getLatitude();
+            arrayLongitude[j] = i.getLongitude();
+            arrayRoomType[j] = i.getRoom_type();
+            arrayPrice[j] = i.getPrice();
+            arrayMinimumNights[j] = i.getMinimum_nights();
+            arrayNumberOfReviews[j] = i.getNumber_of_reviews();
+            arrayLastReview[j] = i.getLast_review();
+            arrayReviewsPerMonth[j] = i.getReviews_per_month();
+            arrayCalculatedHostListingsCount[j] = i.getCalculated_host_listings_count();
+            arrayAvaiability365[j] = i.getAvailability_365();
+            j++;
+        }
+    }
+
+    //Cria uma lista com os preços apenas
+    public static List<Integer> createPriceList(List<AirBnbListings> list) {
+        List<Integer> priceList = new ArrayList<>();
+
+        for (AirBnbListings i : list) {
+            Integer price = i.getPrice();
+            //Integer price = Integer.parseInt(i.getPrice());
+            priceList.add(price);
+        }
+
+        return priceList;
+    }
+
+    //Recebe uma lista de preços e retorna a média dela
+    public static int returnAvgPrice(List<Integer> priceList) {
+        int avgPrice;
+        int priceCounter = 0, diviser = 0;
+
+        for (Integer i : priceList) {
+            priceCounter += i;
+            diviser++;
+        }
+
+        avgPrice =(priceCounter / diviser);
+
+        return  avgPrice;
+    }
+
+}
