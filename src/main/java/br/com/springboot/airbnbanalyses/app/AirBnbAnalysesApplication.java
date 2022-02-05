@@ -5,9 +5,7 @@ import br.com.springboot.airbnbanalyses.ordenationAlgorithms.InsertionSort;
 import br.com.springboot.airbnbanalyses.ordenationAlgorithms.MergeSort;
 import br.com.springboot.airbnbanalyses.ordenationAlgorithms.QuickSort_MedianaDe3;
 import br.com.springboot.airbnbanalyses.ordenationAlgorithms.SelectionSort;
-import br.com.springboot.airbnbanalyses.ordenationMethods.InsertionSortMethods;
-import br.com.springboot.airbnbanalyses.ordenationMethods.MergeSortMethods;
-import br.com.springboot.airbnbanalyses.ordenationMethods.SelectionSortMethods;
+import br.com.springboot.airbnbanalyses.ordenationMethods.*;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
@@ -34,6 +32,7 @@ public class AirBnbAnalysesApplication {
     */
 
     private static final String USER = "lukki";
+    private static final int SLEEP_TIME = 1000;
 
     private static final String CSV_LISTINGS = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\csvFiles\\listings.csv";
     private static final String CSV_LISTINGS_REVIEW_DATE = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\csvFiles\\listings_review_date.csv";
@@ -88,17 +87,30 @@ public class AirBnbAnalysesApplication {
     private static final String CSV_LISTINGS_PRICE_QUICKSORT_MD3_PIORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\quickSort_MedianaDe3\\listings_price_mergeSort_piorCaso.csv";
     private static final String CSV_LISTINGS_PRICE_QUICKSORT_MD3_MELHORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\quickSort_MedianaDe3\\listings_price_mergeSort_melhorCaso.csv";
 
+    private static final String CSV_LISTINGS_PRICE_COUNTINGSORT_MEDIOCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\countingSort\\listings_price_countingSort_medioCaso.csv";
+    private static final String CSV_LISTINGS_PRICE_COUNTINGSORT_PIORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\countingSort\\listings_price_countingSort_piorCaso.csv";
+    private static final String CSV_LISTINGS_PRICE_COUNTINGSORT_MELHORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\countingSort\\listings_price_countingSort_melhorCaso.csv";
 
+    private static final String CSV_LISTINGS_PRICE_HEAPSORT_MEDIOCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\heapSort\\listings_price_heapSort_medioCaso.csv";
+    private static final String CSV_LISTINGS_PRICE_HEAPSORT_PIORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\heapSort\\listings_price_heapSort_piorCaso.csv";
+    private static final String CSV_LISTINGS_PRICE_HEAPSORT_MELHORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\heapSort\\listings_price_heapSort_melhorCaso.csv";
 
     public static void main (String []args) {
         try {
-            /*List<AirBnbListings> list = readCsv(CSV_LISTINGS).parse();
-
+            System.out.println("Criando os seguintes arquivos:\n" +
+                    "listings_review_date.csv\n" +
+                    "listings_gt_avg_prices.csv\n" +
+                    "listings_lt_avg_prices.csv");
+            sleep(SLEEP_TIME);
+            /*
+            List<AirBnbListings> list = readCsv(CSV_LISTINGS).parse();
             convertDate(list);
             List<Integer> priceList = createPriceList(list);
             writeCsvFiles(CSV_LISTINGS_REVIEW_DATE, CSV_LISTINGS_GT_AVG_PRICES, CSV_LISTINGS_LT_AVG_PRICES, list, returnAvgPrice(priceList));
             System.out.println("Arquivos .csv criados com sucesso.");*/
 
+            System.out.println("Lendo e armazenando os valores do arquivo 'listings_review_date.csv'...");
+            sleep(SLEEP_TIME);
             List<AirBnbListings> listings_review_date = readCsv(CSV_LISTINGS_REVIEW_DATE).parse();
 
             Integer[] arrayId = new Integer[listings_review_date.size()];
@@ -141,8 +153,6 @@ public class AirBnbAnalysesApplication {
             int opcaoAlgoritmo, opcaoParametro;
             do {
                 resetArrays(listings_review_date, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
-                opcaoAlgoritmo = 0;
-                opcaoParametro = 0;
 
                 System.out.println("Algoritmos de ordenação:\n" +
                         "1 - CountingSort\n" +
@@ -152,7 +162,8 @@ public class AirBnbAnalysesApplication {
                         "5 - QuickSort\n" +
                         "6 - QuickSort_MedianaDe3\n" +
                         "7 - SelectionSort\n" +
-                        "8 - Sair\n");
+                        "8 - Todos\n" +
+                        "9 - Sair\n");
                 System.out.print("Algoritmo de ordenação desejado: ");
                 opcaoAlgoritmo = sc.nextInt();
 
@@ -166,9 +177,15 @@ public class AirBnbAnalysesApplication {
                             "4 - Last review\n");
                     System.out.print("Parâmetro de ordenação desejado: ");
                     opcaoParametro = sc.nextInt();
+                    System.out.println("Ordenando e gerando os arquivos...");
+                    sleep(SLEEP_TIME);
 
                     if (opcaoParametro == 1) {
-
+                        CountingSortMethods.countigSort_Prices(CSV_LISTINGS_PRICE_COUNTINGSORT_MEDIOCASO,
+                                CSV_LISTINGS_PRICE_COUNTINGSORT_MELHORCASO, CSV_LISTINGS_PRICE_COUNTINGSORT_PIORCASO,
+                                arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount,
+                                arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType,
+                                arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth, arrayPrice.length);
                     }
                     else if (opcaoParametro == 2) {
 
@@ -190,9 +207,15 @@ public class AirBnbAnalysesApplication {
                             "4 - Last review\n");
                     System.out.print("Parâmetro de ordenação desejado: ");
                     opcaoParametro = sc.nextInt();
+                    System.out.println("Ordenando e gerando os arquivos...");
+                    sleep(SLEEP_TIME);
 
                     if (opcaoParametro == 1) {
-
+                        HeapSortMethods.heapSort_Prices(CSV_LISTINGS_PRICE_HEAPSORT_MEDIOCASO,
+                                CSV_LISTINGS_PRICE_HEAPSORT_MELHORCASO, CSV_LISTINGS_PRICE_HEAPSORT_PIORCASO,
+                                arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount,
+                                arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType,
+                                arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
                     }
                     else if (opcaoParametro == 2) {
 
@@ -214,6 +237,8 @@ public class AirBnbAnalysesApplication {
                             "4 - Last review\n");
                     System.out.print("Parâmetro de ordenação desejado: ");
                     opcaoParametro = sc.nextInt();
+                    System.out.println("Ordenando e gerando os arquivos...");
+                    sleep(SLEEP_TIME);
 
                     if (opcaoParametro == 1) {
                         InsertionSortMethods.insertionSort_Prices(CSV_LISTINGS_PRICE_INSERTIONSORT_MEDIOCASO,
@@ -242,6 +267,8 @@ public class AirBnbAnalysesApplication {
                             "4 - Last review\n");
                     System.out.print("Parâmetro de ordenação desejado: ");
                     opcaoParametro = sc.nextInt();
+                    System.out.println("Ordenando e gerando os arquivos...");
+                    sleep(SLEEP_TIME);
 
                     if (opcaoParametro == 1) {
                         MergeSortMethods.mergeSort_Prices(CSV_LISTINGS_PRICE_MERGESORT_MEDIOCASO,
@@ -282,6 +309,8 @@ public class AirBnbAnalysesApplication {
                             "4 - Last review\n");
                     System.out.print("Parâmetro de ordenação desejado: ");
                     opcaoParametro = sc.nextInt();
+                    System.out.println("Ordenando e gerando os arquivos...");
+                    sleep(SLEEP_TIME);
 
                     if (opcaoParametro == 1) {
 
@@ -306,6 +335,8 @@ public class AirBnbAnalysesApplication {
                             "4 - Last review\n");
                     System.out.print("Parâmetro de ordenação desejado: ");
                     opcaoParametro = sc.nextInt();
+                    System.out.println("Ordenando e gerando os arquivos...");
+                    sleep(SLEEP_TIME);
 
                     if (opcaoParametro == 1) {
 
@@ -330,6 +361,8 @@ public class AirBnbAnalysesApplication {
                             "4 - Last review\n");
                     System.out.print("Parâmetro de ordenação desejado: ");
                     opcaoParametro = sc.nextInt();
+                    System.out.println("Ordenando e gerando os arquivos...");
+                    sleep(SLEEP_TIME);
 
                     if (opcaoParametro == 1) {
                         SelectionSortMethods.selectionSort_Prices(CSV_LISTINGS_PRICE_SELECTIONSORT_MEDIOCASO,
@@ -352,14 +385,19 @@ public class AirBnbAnalysesApplication {
 
                     }
                 }
+
                 else if (opcaoAlgoritmo == 8) {
+                    //CHAMA TUDO
+                }
+
+                else if (opcaoAlgoritmo == 9) {
                     System.exit(0);
                 }
                 else {
                     System.out.println("Opção indisponível.\n");
                 }
 
-            } while (opcaoAlgoritmo != 8);
+            } while (true);
 
             //-------------------------------------------MERGE SORT (NAMES)------------------------------------------//
 
@@ -416,6 +454,13 @@ public class AirBnbAnalysesApplication {
             e.printStackTrace();
         } catch (ParseException e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void sleep(int time) {
+        try { Thread.sleep (time);
+        } catch (InterruptedException e) {
+            System.out.println("ERRO: " + e);
         }
     }
 

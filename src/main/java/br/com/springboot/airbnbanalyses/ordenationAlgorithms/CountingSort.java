@@ -1,26 +1,26 @@
 package br.com.springboot.airbnbanalyses.ordenationAlgorithms;
 
 public class CountingSort {
-    public static void countSortCrescent_Price(int[] array, int[] array2, int[] array3, int[] array4, int[] array5,
-                                 int[] array6, int[] array7, int[] array8, String[] array9, String[] array10, String[] array11,
-                                 String[] array12, String[] array13, String[] array14, double[] array15, double[] array16, int size) {
+    public static void countSortCrescent_Price(Integer[] array, Integer[] array2, Integer[] array3, Integer[] array4, Integer[] array5,
+                                               Integer[] array6, Integer[] array7, String[] array8, String[] array9, String[] array10, String[] array11,
+                                 String[] array12, String[] array13, Double[] array14, Double[] array15, Double[] array16, int size) {
 
-        int[] arrayOutput = new int[size + 1];
-        int[] array2Output = new int[size + 1];
-        int[] array3Output = new int[size + 1];
-        int[] array4Output = new int[size + 1];
-        int[] array5Output = new int[size + 1];
-        int[] array6Output = new int[size + 1];
-        int[] array7Output = new int[size + 1];
-        int[] array8Output = new int[size + 1];
+        Integer[] arrayOutput = new Integer[size + 1];
+        Integer[] array2Output = new Integer[size + 1];
+        Integer[] array3Output = new Integer[size + 1];
+        Integer[] array4Output = new Integer[size + 1];
+        Integer[] array5Output = new Integer[size + 1];
+        Integer[] array6Output = new Integer[size + 1];
+        Integer[] array7Output = new Integer[size + 1];
+        String[] array8Output = new String[size + 1];
         String[] array9Output = new String[size + 1];
         String[] array10Output = new String[size + 1];
         String[] array11Output = new String[size + 1];
         String[] array12Output = new String[size + 1];
         String[] array13Output = new String[size + 1];
-        String[] array14Output = new String[size + 1];
-        double[] array15Output = new double[size + 1];
-        double[] array16Output = new double[size + 1];
+        Double[] array14Output = new Double[size + 1];
+        Double[] array15Output = new Double[size + 1];
+        Double[] array16Output = new Double[size + 1];
 
 
         // Encontrando o maior elemento do vetor

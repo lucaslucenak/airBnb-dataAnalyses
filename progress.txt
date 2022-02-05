@@ -2,12 +2,12 @@ Progresso:
 
 CountingSort:
 	By Names
-	By Price
+	By Price (OK)
 	By NumberOfReviews
 	By LastReview
 HeapSort
 	By Names
-	By Price
+	By Price (OK)
 	By NumberOfReviews
 	By LastReview
 InsertionSort

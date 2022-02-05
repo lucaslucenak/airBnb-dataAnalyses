@@ -2,9 +2,9 @@ package br.com.springboot.airbnbanalyses.ordenationAlgorithms;
 
 public class HeapSort {
 
-    public static void heapSortCrescent_Price(int[] array, int[] array2, int[] array3, int[] array4, int[] array5, int[] array6,
-                            int[] array7, int[] array8, String[] array9, String[] array10, String[] array11, String[] array12, String[] array13,
-                            String[] array14, double[] array15, double[] array16) {
+    public static void heapSortCrescent_Price(Integer[] array, Integer[] array2, Integer[] array3, Integer[] array4, Integer[] array5, Integer[] array6,
+                                              Integer[] array7, String[] array8, String[] array9, String[] array10, String[] array11, String[] array12, String[] array13,
+                            Double[] array14, Double[] array15, Double[] array16) {
 
         int n = array.length;
 
@@ -13,22 +13,22 @@ public class HeapSort {
         }
 
         for (int j = n - 1; j > 0; j--) {
-            int aux = array[0];
-            int aux2 = array2[0];
-            int aux3 = array3[0];
-            int aux4 = array4[0];
-            int aux5 = array5[0];
-            int aux6 = array6[0];
-            int aux7 = array7[0];
-            int aux8 = array8[0];
+            Integer aux = array[0];
+            Integer aux2 = array2[0];
+            Integer aux3 = array3[0];
+            Integer aux4 = array4[0];
+            Integer aux5 = array5[0];
+            Integer aux6 = array6[0];
+            Integer aux7 = array7[0];
+            String aux8 = array8[0];
             String aux9 = array9[0];
             String aux10 = array10[0];
             String aux11 = array11[0];
             String aux12 = array12[0];
             String aux13 = array13[0];
-            String aux14 = array14[0];
-            double aux15 = array15[0];
-            double aux16 = array16[0];
+            Double aux14 = array14[0];
+            Double aux15 = array15[0];
+            Double aux16 = array16[0];
 
             array[0] = array[j];
             array2[0] = array2[j];
@@ -67,9 +67,9 @@ public class HeapSort {
         }
     }
 
-    private static void applyHeapSortCrescent_Price(int[] array, int[] array2, int[] array3, int[] array4, int[] array5, int[] array6,
-                                    int[] array7, int[] array8, String[] array9, String[] array10, String[] array11, String[] array12, String[] array13,
-                                    String[] array14, double[] array15, double[] array16, int n, int i) {
+    private static void applyHeapSortCrescent_Price(Integer[] array, Integer[] array2, Integer[] array3, Integer[] array4, Integer[] array5, Integer[] array6,
+                                                    Integer[] array7, String[] array8, String[] array9, String[] array10, String[] array11, String[] array12, String[] array13,
+                                                    Double[] array14, Double[] array15, Double[] array16, int n, int i) {
 
         int raiz = i;
         int esquerda = 2 * i + 1;
@@ -83,22 +83,22 @@ public class HeapSort {
         }
 
         if (raiz != i) {
-            int aux = array[i];
-            int aux2 = array2[i];
-            int aux3 = array3[i];
-            int aux4 = array4[i];
-            int aux5 = array5[i];
-            int aux6 = array6[i];
-            int aux7 = array7[i];
-            int aux8 = array8[i];
+            Integer aux = array[i];
+            Integer aux2 = array2[i];
+            Integer aux3 = array3[i];
+            Integer aux4 = array4[i];
+            Integer aux5 = array5[i];
+            Integer aux6 = array6[i];
+            Integer aux7 = array7[i];
+            String aux8 = array8[i];
             String aux9 = array9[i];
             String aux10 = array10[i];
             String aux11 = array11[i];
             String aux12 = array12[i];
             String aux13 = array13[i];
-            String aux14 = array14[i];
-            double aux15 = array15[i];
-            double aux16 = array16[i];
+            Double aux14 = array14[i];
+            Double aux15 = array15[i];
+            Double aux16 = array16[i];
 
             array[i] = array[raiz];
             array2[i] = array2[raiz];
