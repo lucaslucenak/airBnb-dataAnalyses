@@ -4,7 +4,7 @@ public class QuickSort_MedianaDe3 {
 
     public static void quickSortMD3_Price(Integer[] array, Integer[] array2, Integer[] array3, Integer[] array4, Integer[] array5, Integer[] array6, Integer[] array7, Integer[] array8,
                                  String[] array9, String[] array10, String[] array11, String[] array12, String[] array13, String[] array14,
-                                 Double[] array15, Double[] array16, int a, int b) {
+                                 Double[] array15, Double[] array16, Integer a, Integer b) {
 
         if (a < b) {
             int q = particiona(array, array2, array3, array4, array5, array6, array7, array8, array9, array10, array11, array12, array13, array14, array15, array16, a, b);
@@ -15,12 +15,12 @@ public class QuickSort_MedianaDe3 {
 
     public static int particiona(Integer[] array, Integer[] array2, Integer[] array3, Integer[] array4, Integer[] array5, Integer[] array6, Integer[] array7, Integer[] array8,
                                  String[] array9, String[] array10, String[] array11, String[] array12, String[] array13, String[] array14,
-                                 Double[] array15, Double[] array16, int p, int r) {
+                                 Double[] array15, Double[] array16, Integer p, Integer r) {
         // procura a mediana entre inicio, meio e fim
         int meio = (p + r) / 2;
-        int a = array[p];
-        int b = array[meio];
-        int c = array[r];
+        Integer a = array[p];
+        Integer b = array[meio];
+        Integer c = array[r];
         int medianaIndice; // índice da mediana
         // A sequência de if...else a seguir verifica qual é a mediana
         if (a < b) {
@@ -70,10 +70,10 @@ public class QuickSort_MedianaDe3 {
         swapDouble(array16, medianaIndice, p);
 
         int i = p - 1;
-        int x = array[r];
-        int aux;
+        Integer x = array[r];
+        Integer aux;
         String auxStr;
-        double auxDouble;
+        Double auxDouble;
 
         for (int j = p; j < r; j++) {
             if (array[j] <= x) {
@@ -217,22 +217,22 @@ public class QuickSort_MedianaDe3 {
 
     // método auxiliar para realizar as trocas de elementos
 
-    private static void swap(Integer[] A, int i, int j) {
-        int temp = A[i];
+    private static void swap(Integer[] A, Integer i, Integer j) {
+        Integer temp = A[i];
         A[i] = A[j];
         A[j] = temp;
     }
 
     // Troca Strings
-    private static void swapStr(String[] A, int i, int j) {
+    private static void swapStr(String[] A, Integer i, Integer j) {
         String temp = A[i];
         A[i] = A[j];
         A[j] = temp;
     }
 
     // Troca Pontos flutuantes
-    private static void swapDouble(Double[] A, int i, int j) {
-        double temp = A[i];
+    private static void swapDouble(Double[] A, Integer i, Integer j) {
+        Double temp = A[i];
         A[i] = A[j];
         A[j] = temp;
     }
@@ -254,7 +254,7 @@ public class QuickSort_MedianaDe3 {
         String a = arrayName[p];
         String b = arrayName[meio];
         String c = arrayName[r];
-        int medianaIndice; // índice da mediana
+        Integer medianaIndice; // índice da mediana
         // A sequência de if...else a seguir verifica qual é a mediana
         if (a.compareToIgnoreCase(b) < 0) {
             if (b.compareToIgnoreCase(c) < 0) {
@@ -304,9 +304,9 @@ public class QuickSort_MedianaDe3 {
         int i = p - 1;
         String x = arrayName[r];
 
-        int aux;
+        Integer aux;
         String auxStr;
-        double auxDouble;
+        Double auxDouble;
 
         for (int j = p; j < r; j++) {
             if (arrayName[j].compareToIgnoreCase(x) < 0) {

@@ -114,6 +114,23 @@ public class AirBnbAnalysesApplication {
             Integer[] arrayCalculatedHostListingsCount = new Integer[listings_review_date.size()];
             Integer[] arrayAvaiability365 = new Integer[listings_review_date.size()];
 
+            String[] auxArrayName = new String[arrayName.length];
+            Integer[] auxArrayPrice = new Integer[arrayPrice.length];
+            Integer[] auxArrayId = new Integer[arrayId.length];
+            Integer[] auxArrayHostId = new Integer[arrayHostId.length];
+            Integer[] auxArrayMinimumNights = new Integer[arrayMinimumNights.length];
+            Integer[] auxArrayNumberOfReviews = new Integer[arrayNumberOfReviews.length];
+            Integer[] auxArrayCalculatedHostListingsCount = new Integer[arrayCalculatedHostListingsCount.length];
+            Integer[] auxArrayAvailability365 = new Integer[arrayAvaiability365.length];
+            String[] auxArrayHostName = new String[arrayHostName.length];
+            String[] auxArrayNeighbourhoodGroup = new String[arrayNeighbourhoodGroup.length];
+            String[] auxArrayNeighbourhood = new String[arrayNeighbourhood.length];
+            String[] auxArrayRoomType = new String[arrayRoomType.length];
+            String[] auxArrayLastReview = new String[arrayLastReview.length];
+            Double[] auxArrayLatitude = new Double[arrayLatitude.length];
+            Double[] auxArrayLongitude = new Double[arrayLongitude.length];
+            Double[] auxArrayReviewsPerMonth = new Double[arrayReviewsPerMonth.length];
+
             resetArrays(listings_review_date, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
 
             //-----------------------------------------SELECTION SORT (PRICE)-----------------------------------------//
@@ -123,6 +140,15 @@ public class AirBnbAnalysesApplication {
             writeAlgorithmsFiles(CSV_LISTINGS_PRICE_SELECTIONSORT_MELHORCASO, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
             SelectionSort.selectionSortDecrescent_Price(arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
             writeAlgorithmsFiles(CSV_LISTINGS_PRICE_SELECTIONSORT_PIORCASO, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
+
+            //-----------------------------------------SELECTION SORT (NAMES)-----------------------------------------//
+            SelectionSort.selectionSortCrescent_Names(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
+            writeAlgorithmsFiles(CSV_LISTINGS_NAMES_SELECTIONSORT_MEDIOCASO, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
+            SelectionSort.selectionSortCrescent_Names(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
+            writeAlgorithmsFiles(CSV_LISTINGS_NAMES_SELECTIONSORT_MELHORCASO, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
+            SelectionSort.selectionSortDecrescent_Names(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude);
+            writeAlgorithmsFiles(CSV_LISTINGS_NAMES_SELECTIONSORT_PIORCASO, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
+
 
             //RESET DOS ARRAYS PARA A ORDEM ORIGINAL DOS DADOS
             resetArrays(listings_review_date, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
@@ -139,22 +165,39 @@ public class AirBnbAnalysesApplication {
             //RESET DOS ARRAYS PARA A ORDEM ORIGINAL DOS DADOS
             resetArrays(listings_review_date, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
 
+            //-------------------------------------------MERGE SORT (PRICE)------------------------------------------//
+            MergeSort.mergeSortCrescent_Price(arrayPrice, auxArrayPrice, arrayId, auxArrayId, arrayHostId, auxArrayHostId,
+                    arrayMinimumNights, auxArrayMinimumNights, arrayNumberOfReviews, auxArrayNumberOfReviews,
+                    arrayCalculatedHostListingsCount, auxArrayCalculatedHostListingsCount, auxArrayAvailability365,
+                    auxArrayAvailability365, arrayName, auxArrayName, arrayHostName, auxArrayHostName, arrayNeighbourhoodGroup,
+                    auxArrayNeighbourhoodGroup, arrayNeighbourhood, auxArrayNeighbourhood, arrayRoomType, auxArrayRoomType,
+                    arrayLastReview, auxArrayLastReview, arrayLatitude, auxArrayLatitude, arrayLongitude, auxArrayLongitude,
+                    arrayReviewsPerMonth, auxArrayReviewsPerMonth, 0, arrayPrice.length-1);
+            writeAlgorithmsFiles(CSV_LISTINGS_PRICE_MERGESORT_MEDIOCASO, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
+            MergeSort.mergeSortCrescent_Price(arrayPrice, auxArrayPrice, arrayId, auxArrayId, arrayHostId, auxArrayHostId,
+                    arrayMinimumNights, auxArrayMinimumNights, arrayNumberOfReviews, auxArrayNumberOfReviews,
+                    arrayCalculatedHostListingsCount, auxArrayCalculatedHostListingsCount, auxArrayAvailability365,
+                    auxArrayAvailability365, arrayName, auxArrayName, arrayHostName, auxArrayHostName, arrayNeighbourhoodGroup,
+                    auxArrayNeighbourhoodGroup, arrayNeighbourhood, auxArrayNeighbourhood, arrayRoomType, auxArrayRoomType,
+                    arrayLastReview, auxArrayLastReview, arrayLatitude, auxArrayLatitude, arrayLongitude, auxArrayLongitude,
+                    arrayReviewsPerMonth, auxArrayReviewsPerMonth, 0, arrayPrice.length-1);
+            writeAlgorithmsFiles(CSV_LISTINGS_PRICE_MERGESORT_MELHORCASO, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
+            SelectionSort.selectionSortDecrescent_Price(arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
+            MergeSort.mergeSortCrescent_Price(arrayPrice, auxArrayPrice, arrayId, auxArrayId, arrayHostId, auxArrayHostId,
+                    arrayMinimumNights, auxArrayMinimumNights, arrayNumberOfReviews, auxArrayNumberOfReviews,
+                    arrayCalculatedHostListingsCount, auxArrayCalculatedHostListingsCount, auxArrayAvailability365,
+                    auxArrayAvailability365, arrayName, auxArrayName, arrayHostName, auxArrayHostName, arrayNeighbourhoodGroup,
+                    auxArrayNeighbourhoodGroup, arrayNeighbourhood, auxArrayNeighbourhood, arrayRoomType, auxArrayRoomType,
+                    arrayLastReview, auxArrayLastReview, arrayLatitude, auxArrayLatitude, arrayLongitude, auxArrayLongitude,
+                    arrayReviewsPerMonth, auxArrayReviewsPerMonth, 0, arrayPrice.length-1);
+            writeAlgorithmsFiles(CSV_LISTINGS_PRICE_MERGESORT_PIORCASO, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
+
+
+            //RESET DOS ARRAYS PARA A ORDEM ORIGINAL DOS DADOS
+            resetArrays(listings_review_date, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
+
             //-------------------------------------------MERGE SORT (NAMES)------------------------------------------//
-            String[] auxArrayName = new String[arrayName.length];
-            Integer[] auxArrayPrice = new Integer[arrayPrice.length];
-            Integer[] auxArrayId = new Integer[arrayId.length];
-            Integer[] auxArrayHostId = new Integer[arrayHostId.length];
-            Integer[] auxArrayMinimumNights = new Integer[arrayMinimumNights.length];
-            Integer[] auxArrayNumberOfReviews = new Integer[arrayNumberOfReviews.length];
-            Integer[] auxArrayCalculatedHostListingsCount = new Integer[arrayCalculatedHostListingsCount.length];
-            Integer[] auxArrayAvailability365 = new Integer[arrayAvaiability365.length];
-            String[] auxArrayHostName = new String[arrayHostName.length];
-            String[] auxArrayNeighbourhoodGroup = new String[arrayNeighbourhoodGroup.length];
-            String[] auxArrayNeighbourhood = new String[arrayNeighbourhood.length];
-            String[] auxArrayRoomType = new String[arrayRoomType.length];
-            String[] auxArrayLastReview = new String[arrayLastReview.length];
-            Double[] auxArrayLatitude = new Double[arrayLatitude.length];
-            Double[] auxArrayLongitude = new Double[arrayLongitude.length];
+
 
             MergeSort.mergeSortCrescent_Names(arrayName, auxArrayName, arrayPrice, auxArrayPrice, arrayId, auxArrayId,
                     arrayHostId, auxArrayHostId, arrayMinimumNights, auxArrayMinimumNights, arrayNumberOfReviews,
@@ -183,6 +226,7 @@ public class AirBnbAnalysesApplication {
             resetArrays(listings_review_date, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
 
             //-------------------------------------QUICK SORT MEDIANA DE 3 (NAMES)------------------------------------//
+            // SÓ FUNCIONA O MEDIO CASO
             //QuickSort_MedianaDe3.quickSortMD3_Names(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, 0, arrayName.length-1);
             //writeAlgorithmsFiles(CSV_LISTINGS_NAMES_QUICKSORT_MD3_MEDIOCASO, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
             //QuickSort_MedianaDe3.quickSortMD3_Names(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, 0, arrayName.length-1);

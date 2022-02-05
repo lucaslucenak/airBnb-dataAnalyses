@@ -1,0 +1,37 @@
+Progresso:
+
+CountingSort:
+	By Names
+	By Price
+	By NumberOfReviews
+	By LastReview
+HeapSort
+	By Names
+	By Price
+	By NumberOfReviews
+	By LastReview
+InsertionSort
+	By Names 
+	By Price (OK)
+	By NumberOfReviews
+	By LastReview
+MergeSort
+	By Names (OK)
+	By Price
+	By NumberOfReviews
+	By LastReview
+QuickSort
+	By Names
+	By Price
+	By NumberOfReviews
+	By LastReview
+QuickSort_MedianaDe3
+	By Names
+	By Price
+	By NumberOfReviews
+	By LastReview
+SelectionSort
+	By Names (OK)
+	By Price (OK)
+	By NumberOfReviews
+	By LastReview
