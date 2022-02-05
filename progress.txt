@@ -17,7 +17,7 @@ InsertionSort
 	By LastReview
 MergeSort
 	By Names (OK)
-	By Price
+	By Price (OK)
 	By NumberOfReviews
 	By LastReview
 QuickSort
