@@ -16,13 +16,13 @@ InsertionSort
 	By NumberOfReviews
 	By LastReview
 MergeSort
-	By Names (OK)
+	By Names (Quebra logo de cara)
 	By Price (OK)
 	By NumberOfReviews
 	By LastReview
 QuickSort
-	By Names
-	By Price
+	By Names 
+	By Price (OK) (Gera o primeiro arquivo e quebra na hora de ordenar os outros dois)
 	By NumberOfReviews
 	By LastReview
 QuickSort_MedianaDe3
@@ -33,5 +33,5 @@ QuickSort_MedianaDe3
 SelectionSort
 	By Names (OK)
 	By Price (OK)
-	By NumberOfReviews
+	By NumberOfReviews (OK)
 	By LastReview

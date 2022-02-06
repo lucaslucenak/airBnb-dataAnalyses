@@ -2,23 +2,23 @@ package br.com.springboot.airbnbanalyses.ordenationAlgorithms;
 
 public class QuickSort {
 
-    public static void quickSort(int[] array, int[] array2, int[] array3, int[] array4, int[] array5, int[] array6, int[] array7, int[] array8,
-                                 String[] array9, String[] array10, String[] array11, String[] array12, String[] array13, String[] array14, double[] array15, double[] array16, int a, int b) {
+    public static void quickSort_Prices(Integer[] array, Integer[] array2, Integer[] array3, Integer[] array4, Integer[] array5, Integer[] array6, Integer[] array7, String[] array8,
+                                 String[] array9, String[] array10, String[] array11, String[] array12, String[] array13, Double[] array14, Double[] array15, Double[] array16, int a, int b) {
 
         if (a < b) {
             int q = particiona(array, array2, array3, array4, array5, array6, array7, array8, array9, array10, array11, array12, array13, array14, array15, array16, a, b);
-            quickSort(array, array2, array3, array4, array5, array6, array7, array8, array9, array10, array11, array12, array13, array14, array15, array16, a, q - 1);
-            quickSort(array, array2, array3, array4, array5, array6, array7, array8, array9, array10, array11, array12, array13, array14, array15, array16, q + 1, b);
+            quickSort_Prices(array, array2, array3, array4, array5, array6, array7, array8, array9, array10, array11, array12, array13, array14, array15, array16, a, q - 1);
+            quickSort_Prices(array, array2, array3, array4, array5, array6, array7, array8, array9, array10, array11, array12, array13, array14, array15, array16, q + 1, b);
         }
     }
 
-    public static int particiona(int[] array, int[] array2, int[] array3, int[] array4, int[] array5, int[] array6, int[] array7, int[] array8,
-                                 String[] array9, String[] array10, String[] array11, String[] array12, String[] array13, String[] array14, double[] array15, double[] array16, int p, int r) {
+    public static int particiona(Integer[] array, Integer[] array2, Integer[] array3, Integer[] array4, Integer[] array5, Integer[] array6, Integer[] array7, String[] array8,
+                                 String[] array9, String[] array10, String[] array11, String[] array12, String[] array13, Double[] array14, Double[] array15, Double[] array16, int p, int r) {
         int i = p - 1;
-        int x = array[r];
-        int aux;
+        Integer x = array[r];
+        Integer aux;
         String auxStr;
-        double auxDouble;
+        Double auxDouble;
 
         for (int j = p; j < r; j++) {
             if (array[j] <= x) {
@@ -52,9 +52,9 @@ public class QuickSort {
                 array7[i] = array7[j];
                 array7[j] = aux;
 
-                aux = array8[i];
+                auxStr = array8[i];
                 array8[i] = array8[j];
-                array8[j] = aux;
+                array8[j] = auxStr;
 
                 auxStr = array9[i];
                 array9[i] = array9[j];
@@ -76,9 +76,9 @@ public class QuickSort {
                 array13[i] = array13[j];
                 array13[j] = auxStr;
 
-                auxStr = array14[i];
+                auxDouble = array14[i];
                 array14[i] = array14[j];
-                array14[j] = auxStr;
+                array14[j] = auxDouble;
 
                 auxDouble = array15[i];
                 array15[i] = array15[j];
@@ -120,9 +120,9 @@ public class QuickSort {
         array7[i + 1] = array7[r];
         array7[r] = aux;
 
-        aux = array8[i + 1];
+        auxStr = array8[i + 1];
         array8[i + 1] = array8[r];
-        array8[r] = aux;
+        array8[r] = auxStr;
 
         auxStr = array9[i + 1];
         array9[i + 1] = array9[r];
@@ -144,9 +144,9 @@ public class QuickSort {
         array13[i + 1] = array13[r];
         array13[r] = auxStr;
 
-        auxStr = array14[i + 1];
+        auxDouble = array14[i + 1];
         array14[i + 1] = array14[r];
-        array14[r] = auxStr;
+        array14[r] = auxDouble;
 
         auxDouble = array15[i + 1];
         array15[i + 1] = array15[r];

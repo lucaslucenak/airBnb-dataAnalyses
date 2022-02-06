@@ -63,9 +63,9 @@ public class AirBnbAnalysesApplication {
     private static final String CSV_LISTINGS_PRICE_SELECTIONSORT_PIORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\selectionSort\\listings_price_selectionSort_piorCaso.csv";
     private static final String CSV_LISTINGS_PRICE_SELECTIONSORT_MELHORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\selectionSort\\listings_price_selectionSort_melhorCaso.csv";
 
-    private static final String CSV_LISTINGS_NUMBEROFREVIEWS_SELECTIONSORT_MEDIOCASO = "";
-    private static final String CSV_LISTINGS_NUMBEROFREVIEWS_SELECTIONSORT_PIORCASO = "";
-    private static final String CSV_LISTINGS_NUMBEROFREVIEWS_SELECTIONSORT_MELHORCASO = "";
+    private static final String CSV_LISTINGS_NUMBEROFREVIEWS_SELECTIONSORT_MEDIOCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\selectionSort\\listings_numberOfReviews_selectionSort_medioCaso.csv";
+    private static final String CSV_LISTINGS_NUMBEROFREVIEWS_SELECTIONSORT_PIORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\selectionSort\\listings_numberOfReviews_selectionSort_melhorCaso.csv";
+    private static final String CSV_LISTINGS_NUMBEROFREVIEWS_SELECTIONSORT_MELHORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\selectionSort\\listings_numberOfReviews_selectionSort_piorCaso.csv";
 
     private static final String CSV_LISTINGS_LASTREVIEW_SELECTIONSORT_MEDIOCASO = "";
     private static final String CSV_LISTINGS_LASTREVIEW_SELECTIONSORT_PIORCASO = "";
@@ -79,13 +79,17 @@ public class AirBnbAnalysesApplication {
     private static final String CSV_LISTINGS_PRICE_MERGESORT_PIORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\mergeSort\\listings_price_mergeSort_piorCaso.csv";
     private static final String CSV_LISTINGS_PRICE_MERGESORT_MELHORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\mergeSort\\listings_price_mergeSort_melhorCaso.csv";
 
+    private static final String CSV_LISTINGS_PRICE_QUICKSORT_MEDIOCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\quickSort\\listings_price_quickSort_medioCaso.csv";
+    private static final String CSV_LISTINGS_PRICE_QUICKSORT_PIORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\quickSort\\listings_price_quickSort_piorCaso.csv";
+    private static final String CSV_LISTINGS_PRICE_QUICKSORT_MELHORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\quickSort\\listings_price_quickSort_melhorCaso.csv";
+
     private static final String CSV_LISTINGS_NAMES_QUICKSORT_MD3_MEDIOCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\quickSort_MedianaDe3\\listings_names_quickSort_md3_medioCaso.csv";
     private static final String CSV_LISTINGS_NAMES_QUICKSORT_MD3_PIORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\quickSort_MedianaDe3\\listings_names_quickSort_md3_piorCaso.csv";
     private static final String CSV_LISTINGS_NAMES_QUICKSORT_MD3_MELHORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\quickSort_MedianaDe3\\listings_names_quickSort_md3_melhorCaso.csv";
 
-    private static final String CSV_LISTINGS_PRICE_QUICKSORT_MD3_MEDIOCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\quickSort_MedianaDe3\\listings_price_mergeSort_medioCaso.csv";
-    private static final String CSV_LISTINGS_PRICE_QUICKSORT_MD3_PIORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\quickSort_MedianaDe3\\listings_price_mergeSort_piorCaso.csv";
-    private static final String CSV_LISTINGS_PRICE_QUICKSORT_MD3_MELHORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\quickSort_MedianaDe3\\listings_price_mergeSort_melhorCaso.csv";
+    private static final String CSV_LISTINGS_PRICE_QUICKSORT_MD3_MEDIOCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\quickSort_MedianaDe3\\listings_price_quickSort_md3_medioCaso.csv";
+    private static final String CSV_LISTINGS_PRICE_QUICKSORT_MD3_PIORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\quickSort_MedianaDe3\\listings_price_quickSort_md3_piorCaso.csv";
+    private static final String CSV_LISTINGS_PRICE_QUICKSORT_MD3_MELHORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\quickSort_MedianaDe3\\listings_price_quickSort_md3_melhorCaso.csv";
 
     private static final String CSV_LISTINGS_PRICE_COUNTINGSORT_MEDIOCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\countingSort\\listings_price_countingSort_medioCaso.csv";
     private static final String CSV_LISTINGS_PRICE_COUNTINGSORT_PIORCASO = "C:\\Users\\"+USER+"\\Desktop\\airBnb-dataAnalyses\\src\\main\\resources\\ordenatedCsvFiles\\countingSort\\listings_price_countingSort_piorCaso.csv";
@@ -313,7 +317,11 @@ public class AirBnbAnalysesApplication {
                     sleep(SLEEP_TIME);
 
                     if (opcaoParametro == 1) {
-
+                        QuickSortMethods.quickSort_Prices(CSV_LISTINGS_PRICE_QUICKSORT_MEDIOCASO,
+                                CSV_LISTINGS_PRICE_QUICKSORT_MELHORCASO, CSV_LISTINGS_PRICE_QUICKSORT_PIORCASO,
+                                arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount,
+                                arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood,
+                                arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth, 0, arrayPrice.length-1);
                     }
                     else if (opcaoParametro == 2) {
 
@@ -379,7 +387,11 @@ public class AirBnbAnalysesApplication {
                                 arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
                     }
                     else if (opcaoParametro == 3) {
-
+                        SelectionSortMethods.selectionSort_NumberOfReviews(CSV_LISTINGS_NUMBEROFREVIEWS_SELECTIONSORT_MEDIOCASO,
+                                CSV_LISTINGS_NUMBEROFREVIEWS_SELECTIONSORT_MELHORCASO, CSV_LISTINGS_NUMBEROFREVIEWS_SELECTIONSORT_PIORCASO,
+                                arrayNumberOfReviews, arrayId, arrayHostId, arrayMinimumNights, arrayPrice, arrayCalculatedHostListingsCount,
+                                arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood,
+                                arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
                     }
                     else if (opcaoParametro == 4) {
 
