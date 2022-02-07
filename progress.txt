@@ -3,22 +3,22 @@ Progresso:
 CountingSort:
 	By Names
 	By Price (OK)
-	By NumberOfReviews
+	By NumberOfReviews (OK)
 	By LastReview
 HeapSort
 	By Names
 	By Price (OK)
-	By NumberOfReviews
+	By NumberOfReviews (OK)
 	By LastReview
 InsertionSort
 	By Names 
 	By Price (OK)
-	By NumberOfReviews
+	By NumberOfReviews (OK)
 	By LastReview
 MergeSort
-	By Names (Quebra logo de cara)
+	By Names (Quebra logo de cara) (Daniel funciona)
 	By Price (OK)
-	By NumberOfReviews
+	By NumberOfReviews (OK)
 	By LastReview
 QuickSort
 	By Names 

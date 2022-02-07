@@ -1,7 +1,7 @@
 package br.com.springboot.airbnbanalyses.ordenationAlgorithms;
 
 public class CountingSort {
-    public static void countSortCrescent_Price(Integer[] array, Integer[] array2, Integer[] array3, Integer[] array4, Integer[] array5,
+    public static void countSortCrescent(Integer[] array, Integer[] array2, Integer[] array3, Integer[] array4, Integer[] array5,
                                                Integer[] array6, Integer[] array7, String[] array8, String[] array9, String[] array10, String[] array11,
                                  String[] array12, String[] array13, Double[] array14, Double[] array15, Double[] array16, int size) {
 
