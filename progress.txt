@@ -1,12 +1,12 @@
 Progresso:
 
 CountingSort:
-	By Names
+	By Names (Não achei)
 	By Price (OK)
 	By NumberOfReviews (OK)
 	By LastReview
 HeapSort
-	By Names
+	By Names (OK)
 	By Price (OK)
 	By NumberOfReviews (OK)
 	By LastReview
