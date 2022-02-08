@@ -1,7 +1,7 @@
 Progresso:
 
 CountingSort:
-	By Names (Não achei)
+	By Names (OK)
 	By Price (OK)
 	By NumberOfReviews (OK)
 	By LastReview

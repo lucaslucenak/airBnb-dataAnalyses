@@ -220,9 +220,9 @@ public class AirBnbAnalysesApplication {
                     System.out.println("Selecionado: Counting Sort\n");
                     System.out.println("Parâmetros de ordenação:\n" +
                             "1 - Prices\n" +
-                            "2 - Names\n" +
-                            "3 - Number of reviews\n" +
-                            "4 - Last review\n");
+                            "2 - Number of reviews\n" +
+                            "3 - Last review\n" +
+                            "Names é indisponível.\n");
                     System.out.print("Parâmetro de ordenação desejado: ");
                     opcaoParametro = sc.nextInt();
                     System.out.println("Ordenando e gerando os arquivos...");
@@ -235,17 +235,16 @@ public class AirBnbAnalysesApplication {
                                 arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType,
                                 arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth, arrayPrice.length);
                     }
-                    else if (opcaoParametro == 2) {
 
-                    }
-                    else if (opcaoParametro == 3) {
+                    else if (opcaoParametro == 2) {
                         CountingSortMethods.countigSort_NumberOfReviews(CSV_LISTINGS_NUMBEROFREVIEWS_COUNTINGSORT_MEDIOCASO,
                                 CSV_LISTINGS_NUMBEROFREVIEWS_COUNTINGSORT_MELHORCASO, CSV_LISTINGS_NUMBEROFREVIEWS_COUNTINGSORT_PIORCASO,
                                 arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount,
                                 arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType,
                                 arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth, arrayPrice.length);
                     }
-                    else if (opcaoParametro == 4) {
+
+                    else if (opcaoParametro == 3) {
 
                     }
 
@@ -273,6 +272,7 @@ public class AirBnbAnalysesApplication {
                                 arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType,
                                 arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
                     }
+
                     else if (opcaoParametro == 2) {
                         HeapSortMethods.heapSort_Names(CSV_LISTINGS_NAMES_HEAPSORT_MEDIOCASO,
                                 CSV_LISTINGS_NAMES_HEAPSORT_MELHORCASO, CSV_LISTINGS_NAMES_HEAPSORT_PIORCASO, arrayName, arrayPrice, arrayId,
@@ -280,6 +280,7 @@ public class AirBnbAnalysesApplication {
                                 arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType,
                                 arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
                     }
+
                     else if (opcaoParametro == 3) {
                         HeapSortMethods.heapSort_NumberOfReviews(CSV_LISTINGS_NUMBEROFREVIEWS_HEAPSORT_MEDIOCASO,
                                 CSV_LISTINGS_NUMBEROFREVIEWS_HEAPSORT_MELHORCASO, CSV_LISTINGS_NUMBEROFREVIEWS_HEAPSORT_PIORCASO,
@@ -287,6 +288,7 @@ public class AirBnbAnalysesApplication {
                                 arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType,
                                 arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
                     }
+
                     else if (opcaoParametro == 4) {
 
                     }
