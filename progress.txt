@@ -16,7 +16,7 @@ InsertionSort
 	By NumberOfReviews (OK)
 	By LastReview
 MergeSort
-	By Names (Quebra logo de cara) (Daniel funciona)
+	By Names (OK)
 	By Price (OK)
 	By NumberOfReviews (OK)
 	By LastReview
