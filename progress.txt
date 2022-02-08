@@ -11,7 +11,7 @@ HeapSort
 	By NumberOfReviews (OK)
 	By LastReview
 InsertionSort
-	By Names 
+	By Names (OK)
 	By Price (OK)
 	By NumberOfReviews (OK)
 	By LastReview
