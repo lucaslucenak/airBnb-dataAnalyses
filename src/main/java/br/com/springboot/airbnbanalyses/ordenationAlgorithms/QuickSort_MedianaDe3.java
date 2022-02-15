@@ -238,17 +238,17 @@ public class QuickSort_MedianaDe3 {
     }
 
     public static void quickSortMD3_Names(String[] arrayName, Integer[] arrayPrice, Integer[] arrayId, Integer[] arrayHostId, Integer[] arrayMinimumNights, Integer[] arrayNumberOfReviews, Integer[] arrayCalculatedHostListingsCount, Integer[] arrayAvailability365 ,
-                                    String[] arrayHostName, String[] arrayNeighbourhoodGroup, String[] arrayNeighbourhood, String[] arrayRoomType, String[] arrayLastReview, Double[] arrayLatitude, Double[] arrayLongitude, int a, int b) {
+                                    String[] arrayHostName, String[] arrayNeighbourhoodGroup, String[] arrayNeighbourhood, String[] arrayRoomType, String[] arrayLastReview, Double[] arrayLatitude, Double[] arrayLongitude, Double[] arrayReviewsPerMonth, Integer a, Integer b) {
 
         if (a < b) {
-            int q = particionaStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvailability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, a, b);
-            quickSortMD3_Names(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvailability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, a, q - 1);
-            quickSortMD3_Names(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvailability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, q + 1, b);
+            int q = particionaStr(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvailability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth, a, b);
+            quickSortMD3_Names(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvailability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth, a, q - 1);
+            quickSortMD3_Names(arrayName, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvailability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth, q + 1, b);
         }
     }
 
     public static int particionaStr(String[] arrayName, Integer[] arrayPrice, Integer[] arrayId, Integer[] arrayHostId, Integer[] arrayMinimumNights, Integer[] arrayNumberOfReviews, Integer[] arrayCalculatedHostListingsCount, Integer[] arrayAvailability365,
-                                    String[] arrayHostName, String[] arrayNeighbourhoodGroup, String[] arrayNeighbourhood, String[] arrayRoomType, String[] arrayLastReview, Double[] arrayLatitude, Double[] arrayLongitude, int p, int r) {
+                                    String[] arrayHostName, String[] arrayNeighbourhoodGroup, String[] arrayNeighbourhood, String[] arrayRoomType, String[] arrayLastReview, Double[] arrayLatitude, Double[] arrayLongitude, Double[] arrayReviewsPerMonth, Integer p, Integer r) {
         // procura a mediana entre inicio, meio e fim
         int meio = (p + r) / 2;
         String a = arrayName[p];
@@ -300,6 +300,7 @@ public class QuickSort_MedianaDe3 {
         swapStr(arrayLastReview, medianaIndice, p);
         swapDouble(arrayLatitude, medianaIndice, p);
         swapDouble(arrayLongitude, medianaIndice, p);
+        swapDouble(arrayReviewsPerMonth, medianaIndice, p);
 
         int i = p - 1;
         String x = arrayName[r];
@@ -372,6 +373,10 @@ public class QuickSort_MedianaDe3 {
                 arrayLongitude[i] = arrayLongitude[j];
                 arrayLongitude[j] = auxDouble;
 
+                auxDouble = arrayReviewsPerMonth[i];
+                arrayReviewsPerMonth[i] = arrayReviewsPerMonth[j];
+                arrayReviewsPerMonth[j] = auxDouble;
+
             }
 
         }
@@ -436,6 +441,12 @@ public class QuickSort_MedianaDe3 {
         arrayLongitude[i + 1] = arrayLongitude[r];
         arrayLongitude[r] = auxDouble;
 
+        auxDouble = arrayReviewsPerMonth[i + 1];
+        arrayReviewsPerMonth[i + 1] = arrayReviewsPerMonth[r];
+        arrayReviewsPerMonth[r] = auxDouble;
+
         return i + 1;
     }
+
+
 }
