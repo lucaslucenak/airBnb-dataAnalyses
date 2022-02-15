@@ -441,6 +441,11 @@ public class AirBnbAnalysesApplication {
                     sleep(SLEEP_TIME);
 
                     if (opcaoParametro == 1) {
+                        QuickSort_MedianaDe3_Methods.quickSort_Prices(CSV_LISTINGS_PRICE_QUICKSORT_MD3_MEDIOCASO,
+                                CSV_LISTINGS_PRICE_QUICKSORT_MD3_MELHORCASO, CSV_LISTINGS_PRICE_QUICKSORT_MD3_PIORCASO,
+                                arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount,
+                                arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood,
+                                arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth, 0, arrayPrice.length-1);
 
                     }
                     else if (opcaoParametro == 2) {
