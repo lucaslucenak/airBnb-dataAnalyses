@@ -343,11 +343,15 @@ public class AirBnbAnalysesApplication {
                         printExecutionTimes(insertionSort_Prices_executionTimes);
                     }
                     else if (opcaoParametro == 2) {
-                        InsertionSortMethods.insertionSort_Names(CSV_LISTINGS_NAMES_INSERTIONSORT_MEDIOCASO,
+                        double[] insertionSort_Names_executionTimes;
+
+                        insertionSort_Names_executionTimes = InsertionSortMethods.insertionSort_Names(CSV_LISTINGS_NAMES_INSERTIONSORT_MEDIOCASO,
                             CSV_LISTINGS_NAMES_INSERTIONSORT_MELHORCASO, CSV_LISTINGS_NAMES_INSERTIONSORT_PIORCASO,
                             arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount,
                             arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType,
                             arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
+
+                        printExecutionTimes(insertionSort_Names_executionTimes);
                     }
                     else if (opcaoParametro == 3) {
                         double[] insertionSort_NumberOfReviews_executionTimes;
@@ -398,7 +402,9 @@ public class AirBnbAnalysesApplication {
                         printExecutionTimes(mergeSort_Prices_executionTimes);
                     }
                     else if (opcaoParametro == 2) {
-                        MergeSortMethods.mergeSort_Names(CSV_LISTINGS_NAMES_MERGESORT_MEDIOCASO,
+                        double[] mergeSort_Names_executionTimes;
+
+                        mergeSort_Names_executionTimes = MergeSortMethods.mergeSort_Names(CSV_LISTINGS_NAMES_MERGESORT_MEDIOCASO,
                             CSV_LISTINGS_NAMES_MERGESORT_MELHORCASO, CSV_LISTINGS_NAMES_MERGESORT_PIORCASO,
                             arrayName, arrayPrice, arrayId,
                             arrayHostId, arrayMinimumNights, arrayNumberOfReviews,
@@ -407,6 +413,8 @@ public class AirBnbAnalysesApplication {
                             arrayNeighbourhood, arrayRoomType,
                             arrayLastReview, arrayLatitude, arrayLongitude,
                             arrayReviewsPerMonth, 0, arrayPrice.length-1);
+
+                        printExecutionTimes(mergeSort_Names_executionTimes);
                     }
                     else if (opcaoParametro == 3) {
                         double[] mergeSort_NumberOfReviews_executionTimes;
