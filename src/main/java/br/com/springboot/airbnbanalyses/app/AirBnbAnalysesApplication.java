@@ -553,11 +553,15 @@ public class AirBnbAnalysesApplication {
                         printExecutionTimes(selectionSort_Prices_executionTimes);
                     }
                     else if (opcaoParametro == 2) {
-                        SelectionSortMethods.selectionSort_Names(CSV_LISTINGS_NAMES_SELECTIONSORT_MEDIOCASO,
+                        double[] selectionSort_Names_executionTimes;
+
+                        selectionSort_Names_executionTimes = SelectionSortMethods.selectionSort_Names(CSV_LISTINGS_NAMES_SELECTIONSORT_MEDIOCASO,
                             CSV_LISTINGS_NAMES_SELECTIONSORT_MELHORCASO, CSV_LISTINGS_NAMES_SELECTIONSORT_PIORCASO,
                             arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount,
                             arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood,
                             arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
+
+                        printExecutionTimes(selectionSort_Names_executionTimes);
                     }
                     else if (opcaoParametro == 3) {
                         double[] selectionSort_NumberOfReviews_executionTimes;
