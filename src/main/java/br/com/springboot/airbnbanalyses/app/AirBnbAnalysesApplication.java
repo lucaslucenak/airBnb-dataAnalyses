@@ -287,11 +287,15 @@ public class AirBnbAnalysesApplication {
                     }
 
                     else if (opcaoParametro == 2) {
-                        HeapSortMethods.heapSort_Names(CSV_LISTINGS_NAMES_HEAPSORT_MEDIOCASO,
+                        double[] heapSort_Names_executionTimes;
+
+                        heapSort_Names_executionTimes = HeapSortMethods.heapSort_Names(CSV_LISTINGS_NAMES_HEAPSORT_MEDIOCASO,
                             CSV_LISTINGS_NAMES_HEAPSORT_MELHORCASO, CSV_LISTINGS_NAMES_HEAPSORT_PIORCASO, arrayName, arrayPrice, arrayId,
                             arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount,
                             arrayAvaiability365, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType,
                             arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
+
+                        printExecutionTimes(heapSort_Names_executionTimes);
                     }
 
                     else if (opcaoParametro == 3) {
