@@ -230,7 +230,7 @@ public class AirBnbAnalysesApplication {
                     sleep(SLEEP_TIME);
 
                     if (opcaoParametro == 1) {
-                        double[] countingSort_Prices_executionTimes = new double[3];
+                        double[] countingSort_Prices_executionTimes;
 
                         countingSort_Prices_executionTimes = CountingSortMethods.countigSort_Prices(CSV_LISTINGS_PRICE_COUNTINGSORT_MEDIOCASO,
                             CSV_LISTINGS_PRICE_COUNTINGSORT_MELHORCASO, CSV_LISTINGS_PRICE_COUNTINGSORT_PIORCASO,
@@ -238,17 +238,19 @@ public class AirBnbAnalysesApplication {
                             arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType,
                             arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth, arrayPrice.length);
 
-                        System.out.println("Tempo de execução do médio caso: " + countingSort_Prices_executionTimes[0]);
-                        System.out.println("Tempo de execução do melhor caso: " + countingSort_Prices_executionTimes[1]);
-                        System.out.println("Tempo de execução do pior caso: " + countingSort_Prices_executionTimes[2]);
+                        printExecutionTimes(countingSort_Prices_executionTimes);
                     }
 
                     else if (opcaoParametro == 2) {
-                        CountingSortMethods.countigSort_NumberOfReviews(CSV_LISTINGS_NUMBEROFREVIEWS_COUNTINGSORT_MEDIOCASO,
+                        double[] countingSort_NumberOfReviews_executionTimes;
+
+                        countingSort_NumberOfReviews_executionTimes = CountingSortMethods.countigSort_NumberOfReviews(CSV_LISTINGS_NUMBEROFREVIEWS_COUNTINGSORT_MEDIOCASO,
                             CSV_LISTINGS_NUMBEROFREVIEWS_COUNTINGSORT_MELHORCASO, CSV_LISTINGS_NUMBEROFREVIEWS_COUNTINGSORT_PIORCASO,
                             arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount,
                             arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType,
                             arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth, arrayPrice.length);
+
+                        printExecutionTimes(countingSort_NumberOfReviews_executionTimes);
                     }
 
                     else if (opcaoParametro == 3) {
@@ -318,11 +320,15 @@ public class AirBnbAnalysesApplication {
                     sleep(SLEEP_TIME);
 
                     if (opcaoParametro == 1) {
-                        InsertionSortMethods.insertionSort_Prices(CSV_LISTINGS_PRICE_INSERTIONSORT_MEDIOCASO,
+                        double[] insertionSort_Prices_executionTimes;
+
+                        insertionSort_Prices_executionTimes = InsertionSortMethods.insertionSort_Prices(CSV_LISTINGS_PRICE_INSERTIONSORT_MEDIOCASO,
                             CSV_LISTINGS_PRICE_INSERTIONSORT_MELHORCASO, CSV_LISTINGS_PRICE_INSERTIONSORT_PIORCASO,
                             arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount,
                             arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType,
                             arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
+
+                        printExecutionTimes(insertionSort_Prices_executionTimes);
                     }
                     else if (opcaoParametro == 2) {
                         InsertionSortMethods.insertionSort_Names(CSV_LISTINGS_NAMES_INSERTIONSORT_MEDIOCASO,
@@ -332,11 +338,16 @@ public class AirBnbAnalysesApplication {
                             arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
                     }
                     else if (opcaoParametro == 3) {
-                        InsertionSortMethods.insertionSort_NumberOfReviews(CSV_LISTINGS_NUMBEROFREVIEWS_INSERTIONSORT_MEDIOCASO,
+                        double[] insertionSort_NumberOfReviews_executionTimes;
+
+                        insertionSort_NumberOfReviews_executionTimes = InsertionSortMethods.insertionSort_NumberOfReviews(CSV_LISTINGS_NUMBEROFREVIEWS_INSERTIONSORT_MEDIOCASO,
                             CSV_LISTINGS_NUMBEROFREVIEWS_INSERTIONSORT_MELHORCASO, CSV_LISTINGS_NUMBEROFREVIEWS_INSERTIONSORT_PIORCASO,
                             arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount,
                             arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType,
                             arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
+
+                        printExecutionTimes(insertionSort_NumberOfReviews_executionTimes);
+
                     }
                     else if (opcaoParametro == 4) {
 
@@ -493,7 +504,7 @@ public class AirBnbAnalysesApplication {
                     sleep(SLEEP_TIME);
 
                     if (opcaoParametro == 1) {
-                        double[] selectionSort_Prices_executionTimes = new double[3];
+                        double[] selectionSort_Prices_executionTimes;
 
 
                         selectionSort_Prices_executionTimes = SelectionSortMethods.selectionSort_Prices(CSV_LISTINGS_PRICE_SELECTIONSORT_MEDIOCASO,
@@ -552,6 +563,12 @@ public class AirBnbAnalysesApplication {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void printExecutionTimes(double[] executionTimes) {
+        System.out.println("Tempo de execução do médio caso: " + executionTimes[0]);
+        System.out.println("Tempo de execução do melhor caso: " + executionTimes[1]);
+        System.out.println("Tempo de execução do pior caso: " + executionTimes[2]);
     }
 
     public static void sleep(int time) {
