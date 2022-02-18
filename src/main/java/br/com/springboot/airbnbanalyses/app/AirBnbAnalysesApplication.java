@@ -232,7 +232,7 @@ public class AirBnbAnalysesApplication {
                     if (opcaoParametro == 1) {
                         double[] countingSort_Prices_executionTimes;
 
-                        countingSort_Prices_executionTimes = CountingSortMethods.countigSort_Prices(CSV_LISTINGS_PRICE_COUNTINGSORT_MEDIOCASO,
+                        countingSort_Prices_executionTimes = CountingSortMethods.countigSort_Prices(listings_review_date, CSV_LISTINGS_PRICE_COUNTINGSORT_MEDIOCASO,
                             CSV_LISTINGS_PRICE_COUNTINGSORT_MELHORCASO, CSV_LISTINGS_PRICE_COUNTINGSORT_PIORCASO,
                             arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount,
                             arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType,
@@ -455,7 +455,7 @@ public class AirBnbAnalysesApplication {
                     if (opcaoParametro == 1) {
                         double[] quickSort_Prices_executionTimes;
 
-                        quickSort_Prices_executionTimes = QuickSortMethods.quickSort_Prices(CSV_LISTINGS_PRICE_QUICKSORT_MEDIOCASO,
+                        quickSort_Prices_executionTimes = QuickSortMethods.quickSort_Prices(listings_review_date, CSV_LISTINGS_PRICE_QUICKSORT_MEDIOCASO,
                             CSV_LISTINGS_PRICE_QUICKSORT_MELHORCASO, CSV_LISTINGS_PRICE_QUICKSORT_PIORCASO,
                             arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount,
                             arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood,
@@ -575,6 +575,9 @@ public class AirBnbAnalysesApplication {
                         printExecutionTimes(selectionSort_NumberOfReviews_executionTimes);
                     }
                     else if (opcaoParametro == 4) {
+                        SelectionSort.selectionSortCrescent_LastReview(arrayNumberOfReviews, arrayId, arrayHostId, arrayMinimumNights, arrayPrice, arrayCalculatedHostListingsCount,
+                                arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood,
+                                arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
 
                     }
 

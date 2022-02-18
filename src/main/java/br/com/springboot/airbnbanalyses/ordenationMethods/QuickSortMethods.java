@@ -1,5 +1,7 @@
 package br.com.springboot.airbnbanalyses.ordenationMethods;
 
+import br.com.springboot.airbnbanalyses.app.AirBnbAnalysesApplication;
+import br.com.springboot.airbnbanalyses.entities.AirBnbListings;
 import br.com.springboot.airbnbanalyses.ordenationAlgorithms.QuickSort;
 import br.com.springboot.airbnbanalyses.ordenationAlgorithms.SelectionSort;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
@@ -7,12 +9,13 @@ import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.List;
 
 import static br.com.springboot.airbnbanalyses.app.CsvManipulation.writeAlgorithmsFiles;
 
 public class QuickSortMethods {
-    public static double[] quickSort_Prices(String pathMedioCaso, String pathMelhorCaso, String pathPiorCaso, Integer[] arrayPrice, Integer[] arrayId, Integer[] arrayHostId, Integer[] arrayMinimumNights, Integer[] arrayNumberOfReviews, Integer[] arrayCalculatedHostListingsCount, Integer[] arrayAvaiability365, String[] arrayName,
-                                        String[] arrayHostName, String[] arrayNeighbourhoodGroup, String[] arrayNeighbourhood, String[] arrayRoomType, String[] arrayLastReview, Double[] arrayLatitude, Double[] arrayLongitude, Double[] arrayReviewsPerMonth, int a, int b) throws CsvRequiredFieldEmptyException, CsvDataTypeMismatchException, IOException, ParseException {
+    public static double[] quickSort_Prices(List<AirBnbListings> listings_review_date, String pathMedioCaso, String pathMelhorCaso, String pathPiorCaso, Integer[] arrayPrice, Integer[] arrayId, Integer[] arrayHostId, Integer[] arrayMinimumNights, Integer[] arrayNumberOfReviews, Integer[] arrayCalculatedHostListingsCount, Integer[] arrayAvaiability365, String[] arrayName,
+                                            String[] arrayHostName, String[] arrayNeighbourhoodGroup, String[] arrayNeighbourhood, String[] arrayRoomType, String[] arrayLastReview, Double[] arrayLatitude, Double[] arrayLongitude, Double[] arrayReviewsPerMonth, int a, int b) throws CsvRequiredFieldEmptyException, CsvDataTypeMismatchException, IOException, ParseException {
 
         long initialTime_mediumCase, initialTime_bestCase, initialTime_worstCase, finalTime_mediumCase, finalTime_bestCase, finalTime_worstCase;
         double executionTime_mediumCase, executionTime_bestCase, executionTime_worstCase;
@@ -23,6 +26,8 @@ public class QuickSortMethods {
         finalTime_mediumCase = System.nanoTime();
         executionTime_mediumCase = ((finalTime_mediumCase - initialTime_mediumCase) / 1000000d);
         executionTimes[0] = executionTime_mediumCase;
+
+        AirBnbAnalysesApplication.resetArrays(listings_review_date, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
 
         writeAlgorithmsFiles(pathMedioCaso, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
 
