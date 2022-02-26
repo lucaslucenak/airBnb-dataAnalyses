@@ -222,7 +222,7 @@ public class AirBnbAnalysesApplication {
                     System.out.println("Parâmetros de ordenação:\n" +
                             "1 - Prices\n" +
                             "2 - Number of reviews\n" +
-                            "3 - Last review\n" +
+                            "Last review é indisponível\n" +
                             "Names é indisponível.\n");
                     System.out.print("Parâmetro de ordenação desejado: ");
                     opcaoParametro = sc.nextInt();
@@ -251,10 +251,6 @@ public class AirBnbAnalysesApplication {
                             arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth, arrayPrice.length);
 
                         printExecutionTimes(countingSort_NumberOfReviews_executionTimes);
-                    }
-
-                    else if (opcaoParametro == 3) {
-
                     }
 
                     else {
