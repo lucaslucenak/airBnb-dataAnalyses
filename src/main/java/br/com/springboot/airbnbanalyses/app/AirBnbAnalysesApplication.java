@@ -517,11 +517,11 @@ public class AirBnbAnalysesApplication {
                     else if (opcaoParametro == 2) {
                         double[] quickSortMD3_Names_executionTimes;
 
-                        quickSortMD3_Names_executionTimes = QuickSort_MedianaDe3_Methods.quickSortMD3_Names(CSV_LISTINGS_NAMES_QUICKSORT_MD3_MEDIOCASO,
+                        quickSortMD3_Names_executionTimes = QuickSortMethods.quickSort_Names(listings_review_date, CSV_LISTINGS_NAMES_QUICKSORT_MD3_MEDIOCASO,
                                 CSV_LISTINGS_NAMES_QUICKSORT_MD3_MELHORCASO, CSV_LISTINGS_NAMES_QUICKSORT_MD3_PIORCASO,
-                                arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount,
-                                arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood,
-                                arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth, 0, arrayPrice.length-1);
+                                arrayAvaiability365, arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount,
+                                arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood,
+                                arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth, 0, arrayName.length-1);
 
                         printExecutionTimes(quickSortMD3_Names_executionTimes);
                     }
