@@ -21,14 +21,14 @@ MergeSort
 	By NumberOfReviews (OK)
 	By LastReview
 QuickSort
-	By Names 
+	By Names (OK)
 	By Price (OK)
 	By NumberOfReviews (OK)
 	By LastReview
 QuickSort_MedianaDe3
-	By Names (OK) (Gera o primeiro arquivo e quebra na hora de ordenar os outros dois)
+	By Names (OK com fuleragem)
 	By Price (OK)
-	By NumberOfReviews
+	By NumberOfReviews (OK)
 	By LastReview
 SelectionSort
 	By Names (OK)
