@@ -24,7 +24,7 @@ public class QuickSort_MedianaDe3_Methods {
 
         initialTime_mediumCase = System.nanoTime();
         QuickSort_MedianaDe3.quickSortMD3Crescent(arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365,
-                arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth, a, b);
+                arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, a, b);
         finalTime_mediumCase = System.nanoTime();
         executionTime_mediumCase = ((finalTime_mediumCase - initialTime_mediumCase) / 1000000d);
         executionTimes[0] = executionTime_mediumCase;
@@ -33,7 +33,7 @@ public class QuickSort_MedianaDe3_Methods {
 
         initialTime_bestCase = System.nanoTime();
         QuickSort_MedianaDe3.quickSortMD3Crescent(arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365,
-                arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth, a, b);
+                arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, a, b);
         finalTime_bestCase = System.nanoTime();
         executionTime_bestCase = ((finalTime_bestCase - initialTime_bestCase) / 1000000d);
         executionTimes[1] = executionTime_bestCase;
@@ -43,7 +43,7 @@ public class QuickSort_MedianaDe3_Methods {
 
         initialTime_worstCase = System.nanoTime();
         QuickSort_MedianaDe3.quickSortMD3Crescent(arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365,
-                arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth, a, b);
+                arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, a, b);
         finalTime_worstCase = System.nanoTime();
         executionTime_worstCase = ((finalTime_worstCase - initialTime_worstCase) / 1000000d);
         executionTimes[2] = executionTime_worstCase;
@@ -61,7 +61,7 @@ public class QuickSort_MedianaDe3_Methods {
         double[] executionTimes = new double[3];
 
         initialTime_mediumCase = System.nanoTime();
-        QuickSort_MedianaDe3.quickSortMD3Crescent(arrayNumberOfReviews, arrayId, arrayHostId, arrayMinimumNights, arrayPrice, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth, a, b);
+        QuickSort_MedianaDe3.quickSortMD3Crescent(arrayNumberOfReviews, arrayId, arrayHostId, arrayMinimumNights, arrayPrice, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, a, b);
         finalTime_mediumCase = System.nanoTime();
         executionTime_mediumCase = ((finalTime_mediumCase - initialTime_mediumCase) / 1000000d);
         executionTimes[0] = executionTime_mediumCase;
@@ -69,7 +69,7 @@ public class QuickSort_MedianaDe3_Methods {
         writeAlgorithmsFiles(pathMedioCaso, arrayId, arrayName, arrayHostId, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayLatitude, arrayLongitude, arrayRoomType, arrayPrice, arrayMinimumNights, arrayNumberOfReviews, arrayLastReview, arrayReviewsPerMonth, arrayCalculatedHostListingsCount, arrayAvaiability365);
 
         initialTime_bestCase = System.nanoTime();
-        QuickSort_MedianaDe3.quickSortMD3Crescent(arrayNumberOfReviews, arrayId, arrayHostId, arrayMinimumNights, arrayPrice, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth, a, b);
+        QuickSort_MedianaDe3.quickSortMD3Crescent(arrayNumberOfReviews, arrayId, arrayHostId, arrayMinimumNights, arrayPrice, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, a, b);
         finalTime_bestCase = System.nanoTime();
         executionTime_bestCase = ((finalTime_bestCase - initialTime_bestCase) / 1000000d);
         executionTimes[1] = executionTime_bestCase;
@@ -78,7 +78,7 @@ public class QuickSort_MedianaDe3_Methods {
         SelectionSort.selectionSortDecrescent(arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth);
 
         initialTime_worstCase = System.nanoTime();
-        QuickSort_MedianaDe3.quickSortMD3Crescent(arrayNumberOfReviews, arrayId, arrayHostId, arrayMinimumNights, arrayPrice, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, arrayReviewsPerMonth, a, b);
+        QuickSort_MedianaDe3.quickSortMD3Crescent(arrayNumberOfReviews, arrayId, arrayHostId, arrayMinimumNights, arrayPrice, arrayCalculatedHostListingsCount, arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood, arrayRoomType, arrayLastReview, arrayLatitude, arrayLongitude, a, b);
         finalTime_worstCase = System.nanoTime();
         executionTime_worstCase = ((finalTime_worstCase - initialTime_worstCase) / 1000000d);
         executionTimes[2] = executionTime_worstCase;

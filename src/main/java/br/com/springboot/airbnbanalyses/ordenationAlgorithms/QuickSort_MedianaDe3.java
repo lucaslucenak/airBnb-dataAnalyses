@@ -4,18 +4,18 @@ public class QuickSort_MedianaDe3 {
 
     public static void quickSortMD3Crescent(Integer[] array, Integer[] array2, Integer[] array3, Integer[] array4, Integer[] array5, Integer[] array6, Integer[] array7, String[] array8,
                                  String[] array9, String[] array10, String[] array11, String[] array12, String[] array13, Double[] array14,
-                                 Double[] array15, Double[] array16, Integer a, Integer b) {
+                                 Double[] array15, Integer a, Integer b) {
 
         if (a < b) {
-            int q = particiona(array, array2, array3, array4, array5, array6, array7, array8, array9, array10, array11, array12, array13, array14, array15, array16, a, b);
-            quickSortMD3Crescent(array, array2, array3, array4, array5, array6, array7, array8, array9, array10, array11, array12, array13, array14, array15, array16, a, q - 1);
-            quickSortMD3Crescent(array, array2, array3, array4, array5, array6, array7, array8, array9, array10, array11, array12, array13, array14, array15, array16, q + 1, b);
+            int q = particiona(array, array2, array3, array4, array5, array6, array7, array8, array9, array10, array11, array12, array13, array14, array15, a, b);
+            quickSortMD3Crescent(array, array2, array3, array4, array5, array6, array7, array8, array9, array10, array11, array12, array13, array14, array15, a, q - 1);
+            quickSortMD3Crescent(array, array2, array3, array4, array5, array6, array7, array8, array9, array10, array11, array12, array13, array14, array15, q + 1, b);
         }
     }
 
     public static int particiona(Integer[] array, Integer[] array2, Integer[] array3, Integer[] array4, Integer[] array5, Integer[] array6, Integer[] array7, String[] array8,
                                  String[] array9, String[] array10, String[] array11, String[] array12, String[] array13, Double[] array14,
-                                 Double[] array15, Double[] array16, Integer p, Integer r) {
+                                 Double[] array15, Integer p, Integer r) {
         // procura a mediana entre inicio, meio e fim
         int meio = (p + r) / 2;
         Integer a = array[p];
@@ -67,7 +67,6 @@ public class QuickSort_MedianaDe3 {
         swapStr(array13, medianaIndice, p);
         swapDouble(array14, medianaIndice, p);
         swapDouble(array15, medianaIndice, p);
-        swapDouble(array16, medianaIndice, p);
 
         int i = p - 1;
         Integer x = array[r];
@@ -139,10 +138,6 @@ public class QuickSort_MedianaDe3 {
                 array15[i] = array15[j];
                 array15[j] = auxDouble;
 
-                auxDouble = array16[i];
-                array16[i] = array16[j];
-                array16[j] = auxDouble;
-
             }
 
         }
@@ -206,10 +201,6 @@ public class QuickSort_MedianaDe3 {
         auxDouble = array15[i + 1];
         array15[i + 1] = array15[r];
         array15[r] = auxDouble;
-
-        auxDouble = array16[i + 1];
-        array16[i + 1] = array16[r];
-        array16[r] = auxDouble;
 
         return i + 1;
 

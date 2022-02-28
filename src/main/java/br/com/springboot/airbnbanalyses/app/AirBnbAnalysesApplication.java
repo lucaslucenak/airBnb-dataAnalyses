@@ -165,8 +165,7 @@ public class AirBnbAnalysesApplication {
                         "5 - QuickSort\n" +
                         "6 - QuickSort_MedianaDe3\n" +
                         "7 - SelectionSort\n" +
-                        "8 - Todos os algoritmos de uma vez\n" +
-                        "9 - Sair\n");
+                        "8 - Sair\n");
                 System.out.print("Algoritmo de ordenação desejado: ");
                 opcaoAlgoritmo = sc.nextInt();
 
@@ -548,7 +547,7 @@ public class AirBnbAnalysesApplication {
                     if (opcaoParametro == 1) {
                         double[] quickSortMD3_Prices_executionTimes;
 
-                        quickSortMD3_Prices_executionTimes = QuickSortMethods.quickSort_Prices(listings_review_date, CSV_LISTINGS_PRICE_QUICKSORT_MD3_MEDIOCASO,
+                        quickSortMD3_Prices_executionTimes = QuickSort_MedianaDe3_Methods.quickSortMD3_Prices(CSV_LISTINGS_PRICE_QUICKSORT_MD3_MEDIOCASO,
                                 CSV_LISTINGS_PRICE_QUICKSORT_MD3_MELHORCASO, CSV_LISTINGS_PRICE_QUICKSORT_MD3_PIORCASO,
                                 arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount,
                                 arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood,
@@ -579,7 +578,7 @@ public class AirBnbAnalysesApplication {
                         printExecutionTimes(quickSort_MD3_NumberOfReviews_executionTimes);
                     }
                     else if (opcaoParametro == 4) {
-                        QuickSortMethods.quickSort_Prices(listings_review_date, CSV_LISTINGS_PRICE_QUICKSORT_MD3_MEDIOCASO,
+                        QuickSort_MedianaDe3_Methods.quickSortMD3_Prices(CSV_LISTINGS_PRICE_QUICKSORT_MD3_MEDIOCASO,
                                 CSV_LISTINGS_PRICE_QUICKSORT_MD3_MELHORCASO, CSV_LISTINGS_PRICE_QUICKSORT_MD3_PIORCASO,
                                 arrayPrice, arrayId, arrayHostId, arrayMinimumNights, arrayNumberOfReviews, arrayCalculatedHostListingsCount,
                                 arrayAvaiability365, arrayName, arrayHostName, arrayNeighbourhoodGroup, arrayNeighbourhood,
@@ -675,11 +674,6 @@ public class AirBnbAnalysesApplication {
                 }
 
                 else if (opcaoAlgoritmo == 8) {
-
-
-                }
-
-                else if (opcaoAlgoritmo == 9) {
                     System.exit(0);
                 }
 
