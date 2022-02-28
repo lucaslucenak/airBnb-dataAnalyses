@@ -2,9 +2,9 @@
 
 <h1 align="center">Projeto AirBnB</h1>
 <h2>Componentes: </h2>
-<h1>Lucas de Lucena</h1>
-<h1>Daniel Xavier</h1>
-<h1>Ian Vasconcelos</h1>
+<h3>Lucas de Lucena</h3>
+<h3>Daniel Xavier</h3>
+<h3>Ian Vasconcelos</h3>
 
 <p>O projeto utiliza de algumas dependências do SpringBoot, portanto é necessário averiguar o 
 <u>pom.xml</u> antes da execução para garantir que todas as dependências foram geradas corretamente.</p>
