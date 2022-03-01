@@ -20,3 +20,5 @@
      3° - Após ajustar os endereços de criação dos arquivos, basta executar esta classe (AirBnbAnalysesApplication.java)
     
 <p> <b>OBS: </b> O projeto foi desenvolvido no <u>IntelliJ IDEA</u> e <u>Spring Tool Suite 4.</u></p>
+
+<ul><li>Acessar relatório do projeto "<u>Relatório.pdf</u>"</li></ul>
